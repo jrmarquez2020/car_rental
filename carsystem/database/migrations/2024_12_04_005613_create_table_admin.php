@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('admin', function (Blueprint $table) {
-            $table->string('ADMIN_ID')->primary();
-            $table->string('ADMIN_PASSWORD');
-            $table->timestamps();
+            $table->id();  // Auto-incrementing ID as primary key
+            $table->string('email')->unique();  // Email column
+            $table->string('password');  // Password column
+            $table->timestamps();  // Timestamps for created_at and updated_at
         });
     }
 

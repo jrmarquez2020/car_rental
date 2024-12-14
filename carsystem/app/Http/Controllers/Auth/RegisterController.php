@@ -45,7 +45,7 @@ class RegisterController extends Controller
             'phone_number' => ['required', 'string', 'max:15'],
             'gender' => ['required', 'in:Male,Female,Other'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'license_photo' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
+            'license_photo' => ['required', 'image', 'mimes:jpeg,png,jpg'],
         ]);
     }
 

@@ -46,6 +46,13 @@
             <label for="password_confirmation" class="form-label">Confirm Password</label>
             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
         </div>
+        @if ($errors->any())
+        <ul class="text-danger">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
 </div>

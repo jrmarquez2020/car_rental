@@ -1,13 +1,17 @@
-@extends('layout')
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Admin Dashboard</h1>
+    <p>Total Cars: {{ $carCount }}</p>
+    <p>Total Users: {{ $userCount }}</p>
+    <p>Total Bookings: {{ $bookingCount }}</p>
 
-@section('title', 'Admin Dashboard')
-
-@section('content')
-<h1>Admin Dashboard</h1>
-<nav>
-    <a href="/admin/cars">Manage Cars</a>
-    <a href="/admin/users">Manage Users</a>
-    <a href="/admin/bookings">Manage Bookings</a>
-    <a href="/admin/feedbacks">View Feedbacks</a>
-</nav>
-@endsection
+    <form action="{{ route('admin.logout') }}" method="POST">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

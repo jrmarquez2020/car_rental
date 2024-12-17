@@ -14,7 +14,6 @@ use App\Http\Controllers\ContactController;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Middleware\AdminAuth;
 
 // Admin Controllers
 use App\Http\Controllers\Admin\UserController;
@@ -22,8 +21,6 @@ use App\Http\Controllers\Admin\AdminBookingController;
 use App\Http\Controllers\Admin\AdminCarController;
 use App\Http\Controllers\Admin\Auth\AdminLoginController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\AdminFeedbackController;
-
 
 // ----------------------------
 // Authentication Routes
@@ -82,7 +79,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 
     // Admin Dashboard
-    Route::middleware(AdminAuth::class)->group(function () {
+    Route::middleware('auth:admin')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
         // Admin Cars Management
@@ -97,7 +94,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Admin Feedbacks
         Route::get('/feedbacks', [FeedbackController::class, 'adminIndex'])->name('feedbacks.index');
         Route::delete('/feedbacks/{id}', [FeedbackController::class, 'destroy'])->name('feedbacks.destroy');
-        // Admin Feedback
     });
 });
 

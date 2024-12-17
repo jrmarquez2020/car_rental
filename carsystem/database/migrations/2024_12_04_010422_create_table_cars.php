@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,8 +17,8 @@ return new class extends Migration
             $table->integer('CAPACITY');
             $table->integer('PRICE');
             $table->string('CAR_IMG');
-            $table->string('AVAILABLE');
-            $table->string('CATEGORY', 50)->nullable();
+            $table->string('availability')->default('available'); // Default availability set to 'available'
+            $table->string('CATEGORY', 50);
             $table->timestamps();
         });
     }

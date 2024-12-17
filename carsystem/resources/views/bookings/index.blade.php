@@ -2,14 +2,13 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1 class="mb-4">Manage Bookings</h1>
+    <h1 class="mb-4">MY BOOKS</h1>
 
     <table class="table table-bordered">
         <thead class="table-dark">
             <tr>
                 <th>#</th>
                 <th>Car</th>
-                <th>User Email</th>
                 <th>Book Place</th>
                 <th>Booking Date</th>
                 <th>Duration</th>
@@ -23,11 +22,10 @@
                 <tr>
                     <td>{{ $booking->BOOK_ID }}</td>
                     <td>{{ $booking->car->CAR_NAME ?? 'N/A' }}</td>
-                    <td>{{ $booking->EMAIL }}</td>
                     <td>{{ $booking->BOOK_PLACE }}</td>
                     <td>{{ $booking->BOOK_DATE }}</td>
                     <td>{{ $booking->DURATION }} days</td>
-                    <td>${{ $booking->PRICE }}</td>
+                    <td>₱{{ $booking->TOTAL_PRICE }}</td>
                     <td>{{ $booking->BOOK_STATUS }}</td>
                     <td>
                         <a href="{{ route('admin.bookings.edit', $booking->BOOK_ID) }}" class="btn btn-sm btn-primary">Edit</a>
@@ -45,7 +43,5 @@
             @endforelse
         </tbody>
     </table>
-
-    <a href="{{ route('cars.index') }}" class="btn btn-secondary mt-3">Back to Car Listings</a>
 </div>
 @endsection

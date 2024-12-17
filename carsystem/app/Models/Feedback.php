@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Feedback extends Model
 {
     use HasFactory;
+    // The table associated with the model.
+    protected $table = 'feedbacks';
 
-    protected $fillable = ['user_id', 'car_id', 'rating', 'comments'];
+    // The attributes that are mass assignable.
+    protected $fillable = ['EMAIL', 'COMMENT', 'RATING'];
+
 
     // Feedback belongs to a car
     public function car()

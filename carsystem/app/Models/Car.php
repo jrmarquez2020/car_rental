@@ -8,8 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     use HasFactory;
+    protected $table = 'cars'; // Ensure the table name matches
+    protected $primaryKey = 'CAR_ID'; // Use CAR_ID as the primary key
+    public $incrementing = true; // If CAR_ID is auto-incrementing
+    protected $keyType = 'int'; // Match the type of CAR_ID
 
-    protected $fillable = ['brand', 'model', 'price_per_day', 'availability', 'description'];
+    
+    public function getRouteKeyName()
+    {
+        return 'CAR_ID';
+    }
+    protected $fillable = [
+        'CAR_NAME',
+        'FUEL_TYPE',
+        'CAPACITY',
+        'PRICE',
+        'CAR_IMG',
+        'availability',
+        'CATEGORY',
+    ];
 
     // A car can have many bookings
     public function bookings()

@@ -12,6 +12,7 @@ class CarController extends Controller
         $cars = Car::where('availability', true)->get();
         return view('cars.index', compact('cars'));
     }
+    
 
     public function create()
     {
@@ -40,6 +41,21 @@ class CarController extends Controller
     public function destroy($id)
     {
         Car::destroy($id);
-        return redirect('/admin/cars');
+        return redirect('/admin/cars'); 
     }
+
+    public function showCarsOverview()
+    {
+        // Fetch available cars from the database
+        $cars = Car::where('availability', '1')->get();
+        return view('home', compact('cars'));
+    }
+
+    // app/Http/Controllers/CarController.php
+    public function showBookingForm($id)
+    {
+        $car = Car::find($id); // Find the car by ID
+        return view('bookings.create', compact('car')); // Pass the car details to the booking view
+    }
+
 }

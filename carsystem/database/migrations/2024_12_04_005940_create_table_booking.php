@@ -22,11 +22,13 @@ return new class extends Migration
             $table->string('DESTINATION');
             $table->string('ID_PHOTO')->nullable();
             $table->integer('PRICE');
+            $table->decimal('TOTAL_PRICE', 10, 2)->nullable();
             $table->string('BOOK_STATUS')->default('UNDER PROCESSING');
             $table->date('RETURN_DATE')->nullable();
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

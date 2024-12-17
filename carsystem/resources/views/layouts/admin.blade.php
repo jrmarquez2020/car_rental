@@ -28,9 +28,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.feedbacks.index') }}">Feedbacks</a>
-                    </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Feedbacks</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.bookings.index') }}">Booking Requests</a>
                     </li>
